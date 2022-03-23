@@ -14,6 +14,7 @@ def print_board(board):
     for row in board:
         print("|".join(row))
 
+
 player_x = input('Select which box to place your x. ')
 player_y = input('Select which box to place your y. ')
 
@@ -62,8 +63,6 @@ print('\n')
 print_board(board)
 
 
-
-#TODO create a board
 
 #TODO detect a win, based on rows, col, or diag. write a function to check rows, cols, diag
 
