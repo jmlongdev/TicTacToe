@@ -2,12 +2,18 @@ board = []
 
 for row in range(0, 3):
     board.append([])
-    for col in range(0, 3):
-        board[row].append('|_|')
+    if row < 2:
+        for col in range(0, 3):
+            board[row].append('_')
+    if row == 2:
+        for col in range(0,3):
+            board[row].append(' ')
+
 
 def print_board(board):
     for row in board:
-        print("".join(row))
+        print("|".join(row))
+
 
 print(board)
 print('\n')
