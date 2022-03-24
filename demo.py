@@ -12,6 +12,7 @@ def print_board(TTT_board):
     for row in TTT_board:
         print("|".join(row))
 
+
 def check_win():
     global TTT_board, winner, draw, count
     # Check for winning rows
@@ -73,6 +74,7 @@ def player_choice(player_selection, shape):
     if player_selection == '9':
         TTT_board[2][2] = shape.upper()
     check_win()
+
 
 game = True
 while game:

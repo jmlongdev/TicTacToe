@@ -52,18 +52,18 @@ def draw_status():
 
 
 # Draw the grid on the canvas where to play the game
-# def game_opening():
-#     screen.blit(opening, (0, 0))
-#     pg.display.update()
-#     time.sleep(1)
-#     screen.fill(white)
-#     # Drawing vertical lines
-#     pg.draw.line(screen, line_color, (width/3, 0), (width/3, height), 7)
-#     pg.draw.line(screen, line_color, (width/3*2, 0), (width/3*2, height), 7)
-#     # Drawing horizontal lines
-#     pg.draw.line(screen, line_color, (0, height/3), (width, height/3), 7)
-#     pg.draw.line(screen, line_color, (0, height/3*2), (width, height/3*2), 7)
-#     draw_status()
+def game_opening():
+    screen.blit(opening, (0, 0))
+    pg.display.update()
+    time.sleep(1)
+    screen.fill(white)
+    # Drawing vertical lines
+    pg.draw.line(screen, line_color, (width/3, 0), (width/3, height), 7)
+    pg.draw.line(screen, line_color, (width/3*2, 0), (width/3*2, height), 7)
+    # Drawing horizontal lines
+    pg.draw.line(screen, line_color, (0, height/3), (width, height/3), 7)
+    pg.draw.line(screen, line_color, (0, height/3*2), (width, height/3*2), 7)
+    draw_status()
 
 
 # When someone wins the game or the game is a draw we reset the game
@@ -100,64 +100,64 @@ def check_win():
     draw_status()
 
 
-# def draw_xo(row, col):
-#     global TTT, XO
-#     if row == 1:
-#         posx = 30
-#     if row == 2:
-#         posx = width/3+30
-#     if row == 3:
-#         posx = width/3*2+30
-#
-#     if col == 1:
-#         posy = 30
-#     if col == 2:
-#         posy = width/3+30
-#     if col == 3:
-#         posy = width/3*2+30
-#     TTT[row-1][col-1] = XO
-#     if XO == 'x':
-#         screen.blit(x_img, (posy, posx))
-#         XO = 'o'
-#     else:
-#         screen.blit(o_img, (posy, posx))
-#         XO = 'x'
-#     pg.display.update()
-#     #print(posx, posy)
-#     #print(TTT)
+def draw_xo(row, col):
+    global TTT, XO
+    if row == 1:
+        posx = 30
+    if row == 2:
+        posx = width/3+30
+    if row == 3:
+        posx = width/3*2+30
+
+    if col == 1:
+        posy = 30
+    if col == 2:
+        posy = width/3+30
+    if col == 3:
+        posy = width/3*2+30
+    TTT[row-1][col-1] = XO
+    if XO == 'x':
+        screen.blit(x_img, (posy, posx))
+        XO = 'o'
+    else:
+        screen.blit(o_img, (posy, posx))
+        XO = 'x'
+    pg.display.update()
+    #print(posx, posy)
+    #print(TTT)
 
 
-# def user_click():
-#     # get coordinates of mouse click
-#     x, y = pg.mouse.get_pos()
-#
-#     # get column of mouse click, (1-3)
-#     if x < width/3:
-#         col = 1
-#     elif x < width/3*2:
-#         col = 2
-#     elif x < width:
-#         col = 3
-#     else:
-#         col = None
-#
-#     # get row of mouse click (1-3)
-#     if y < height/3:
-#         row = 1
-#     elif y < height/3*2:
-#         row = 2
-#     elif y < height:
-#         row = 3
-#     else:
-#         row = None
-#     # print(row,col)
-#
-#     if row and col and TTT[row-1][col-1] is None:
-#         global XO
-#
-#         # draw the x or o on the screen
-#         draw_xo(row, col)
-#         check_win()
+def user_click():
+    # get coordinates of mouse click
+    x, y = pg.mouse.get_pos()
+
+    # get column of mouse click, (1-3)
+    if x < width/3:
+        col = 1
+    elif x < width/3*2:
+        col = 2
+    elif x < width:
+        col = 3
+    else:
+        col = None
+
+    # get row of mouse click (1-3)
+    if y < height/3:
+        row = 1
+    elif y < height/3*2:
+        row = 2
+    elif y < height:
+        row = 3
+    else:
+        row = None
+    # print(row,col)
+
+    if row and col and TTT[row-1][col-1] is None:
+        global XO
+
+        # draw the x or o on the screen
+        draw_xo(row, col)
+        check_win()
 
 
 # Game reset function
